@@ -16,5 +16,4 @@ function showQuestion(){
         
         document.getElementById(`answer${i}`).innerHTML = `${answer}`;
     }
-
 }
