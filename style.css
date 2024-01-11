@@ -12,7 +12,18 @@ main{
 .nav-bg{
     background-color: #27355cff;
     height: 480px;
-    border-radius: 8px 0px 0px 8px;
+    width: 240px;
+    border-radius: 16px 0px 0px 16px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.nav-bg img{
+    height: 80px;
+}
+
+.nav-links{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
