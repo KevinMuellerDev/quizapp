@@ -1,4 +1,4 @@
-let currentQuestion = 1;
+let currentQuestion = 0;
 
 
 function init(){
