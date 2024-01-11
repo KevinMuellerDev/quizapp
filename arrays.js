@@ -1,4 +1,4 @@
-let question = [
+let questions = [
     {
         'question':'Wer hat HTML erfunden?',
         'answer_1':'Robbie Williams',
