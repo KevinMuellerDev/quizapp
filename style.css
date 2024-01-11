@@ -1,12 +1,13 @@
 body{
     margin: 0;
     background-color: rgb(70, 68, 73)!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 main{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
 }
 
 .nav-bg{
@@ -26,4 +27,14 @@ main{
     display: flex;
     flex-direction: column;
     gap: 32px;
+}
+
+.card-container{
+    width: 800px!important;
+    height: 480px!important;
+    border-radius: 0px 16px 16px 0px!important;
+    border: none!important;
+    background-image: url(./img/brainbg.jpg);
+    background-size: cover;
+    background-position: center;
 }
