@@ -1,5 +1,8 @@
 let currentQuestion = 0;
 let highscore = 0;
+let AUDIO_SUCCESS = new Audio('./audio/success.mp3');
+let AUDIO_FAIL = new Audio('./audio/false.wav');
+let AUDIO_VICTORY = new Audio('./audio/victory.wav');
 
 
 function init() {
@@ -14,6 +17,7 @@ function showQuestion() {
     if (currentQuestion >= questions.length) {
         document.getElementById('cardcontainer').innerHTML = '';
         document.getElementById('cardcontainer').innerHTML = tempEndscreen(highscore);
+        AUDIO_VICTORY.play();
     } else {
         document.getElementById('question-head').innerHTML = `${question['question']}`;
         activateAnswers(question);
@@ -33,9 +37,11 @@ function answer(selection) {
     if (selectedAnswer === question["right_answer"]) {
         document.getElementById(`answer${question["right_answer"]}`).parentNode.classList.add('bg-success')
         highscore++;
+        AUDIO_SUCCESS.play();
     } else {
         document.getElementById(`answer${selectedAnswer}`).parentNode.classList.add('bg-danger');
         document.getElementById(`answer${question["right_answer"]}`).parentNode.classList.add('bg-success')
+        AUDIO_FAIL.play();
     }
     disableAnswers(question);
     document.getElementById('btn-nextquestion').disabled = false;
@@ -70,7 +76,6 @@ function showProgress(){
 }
 
 function calculateProgress(){
-    let calcProgress = 0;
     return calcProgress = ((100/questions.length)*(currentQuestion));
 }
 
