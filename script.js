@@ -1,4 +1,5 @@
 let currentQuestion = 0;
+let highscore = 0;
 
 
 function init() {
@@ -9,13 +10,19 @@ function init() {
 
 function showQuestion() {
     let question = questions[currentQuestion];
-    document.getElementById('question-head').innerHTML = `${question['question']}`;
 
-    for (let i = 1; i < Object.keys(question).length - 1; i++) {
-        const answer = question[`answer_${i}`];
+    if (currentQuestion >= questions.length) {
+        document.getElementById('cardcontainer').innerHTML = '';
+        document.getElementById('cardcontainer').innerHTML = tempEndscreen(highscore);
+    } else {
+        document.getElementById('question-head').innerHTML = `${question['question']}`;
 
-        document.getElementById(`answer${i}`).innerHTML = `${answer}`;
-        document.getElementById(`answer${i}`).parentNode.classList.remove('bg-danger', 'bg-success');
+        for (let i = 1; i < Object.keys(question).length - 1; i++) {
+            const answer = question[`answer_${i}`];
+
+            document.getElementById(`answer${i}`).innerHTML = `${answer}`;
+            document.getElementById(`answer${i}`).parentNode.classList.remove('bg-danger', 'bg-success');
+        }
     }
 }
 
@@ -25,6 +32,7 @@ function answer(selection) {
 
     if (selectedAnswer === question["right_answer"]) {
         document.getElementById(`answer${question["right_answer"]}`).parentNode.classList.add('bg-success')
+        highscore++;
     } else {
         document.getElementById(`answer${selectedAnswer}`).parentNode.classList.add('bg-danger');
         document.getElementById(`answer${question["right_answer"]}`).parentNode.classList.add('bg-success')
@@ -36,6 +44,15 @@ function nextQuestion() {
     currentQuestion++;
 
     showQuestion();
-    document.getElementById('question-start').textContent = `${currentQuestion + 1}`;
-    document.getElementById('btn-nextquestion').disabled = true;
+    if (currentQuestion < questions.length) {
+        document.getElementById('question-start').textContent = `${currentQuestion + 1}`;
+        document.getElementById('btn-nextquestion').disabled = true;
+    }
+}
+
+function newGame() {
+    currentQuestion = 0;
+    highscore = 0;
+    document.getElementById('cardcontainer').innerHTML = tempNew();
+    init();
 }

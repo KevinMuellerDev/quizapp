@@ -13,6 +13,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="arrays.js"></script>
+    <script src="templateHtml.js"></script>
     <script src="script.js"></script>
 
 </head>
@@ -24,14 +25,13 @@
             <div>
                 <img src="./img/logo.png" alt="logo">
             </div>
-            <div class="nav-links">
-                <a class="nav-link active" href="#">Active</a>
-                <a class="nav-link" href="#">Link</a>
-                <a class="nav-link" href="#">Link</a>
-                <a class="nav-link" href="#">Disabled</a>
+            <div class="nav-links fw-bold fs-5">
+                <a class="nav-link text-white active" href="#">HTML</a>
+                <a class="nav-link text-white" href="#">CSS</a>
+                <a class="nav-link text-white" href="#">JavaScript</a>
             </div>
         </nav>
-        <div class="card card-container">
+        <div class="card card-container" id="cardcontainer">
             <div class="card-body d-flex flex-column justify-content-around">
                 <h5 class="card-title" id="question-head">Frage</h5>
                 <div>

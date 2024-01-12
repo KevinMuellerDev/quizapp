@@ -47,3 +47,7 @@ main{
 .bg-success, .bg-danger {
     color: white!important;
 }
+
+.result-img img{
+    height: 120px;
+}
