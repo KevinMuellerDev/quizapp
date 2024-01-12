@@ -16,7 +16,7 @@ function showQuestion() {
         document.getElementById('cardcontainer').innerHTML = tempEndscreen(highscore);
     } else {
         document.getElementById('question-head').innerHTML = `${question['question']}`;
-
+        activateAnswers(question);
         for (let i = 1; i < Object.keys(question).length - 1; i++) {
             const answer = question[`answer_${i}`];
 
@@ -37,7 +37,20 @@ function answer(selection) {
         document.getElementById(`answer${selectedAnswer}`).parentNode.classList.add('bg-danger');
         document.getElementById(`answer${question["right_answer"]}`).parentNode.classList.add('bg-success')
     }
+    disableAnswers(question);
     document.getElementById('btn-nextquestion').disabled = false;
+}
+
+function disableAnswers(question){
+    for (let i = 1; i < Object.keys(question).length - 1; i++) {
+        document.getElementById(`answer${i}`).parentNode.style="pointer-events:none!important";
+    }
+}
+
+function activateAnswers(question){
+    for (let i = 1; i < Object.keys(question).length - 1; i++) {
+        document.getElementById(`answer${i}`).parentNode.style="";
+    }
 }
 
 function nextQuestion() {
@@ -47,6 +60,7 @@ function nextQuestion() {
     if (currentQuestion < questions.length) {
         document.getElementById('question-start').textContent = `${currentQuestion + 1}`;
         document.getElementById('btn-nextquestion').disabled = true;
+
     }
 }
 
