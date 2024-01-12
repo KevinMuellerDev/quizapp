@@ -17,3 +17,16 @@ function showQuestion(){
         document.getElementById(`answer${i}`).innerHTML = `${answer}`;
     }
 }
+
+function answer(selection){
+    let question = questions[currentQuestion];
+    let selectedAnswer = Number(selection.slice(-1));
+
+    if (selectedAnswer === question["right_answer"] ){
+        document.getElementById(`answer${question["right_answer"]}`).parentNode.classList.add('bg-success')
+    }else{
+        document.getElementById(`answer${selectedAnswer}`).parentNode.classList.add('bg-danger');
+        document.getElementById(`answer${question["right_answer"]}`).parentNode.classList.add('bg-success')
+    }
+    document.getElementById('btn-nextquestion').disabled=false;
+}

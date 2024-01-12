@@ -38,3 +38,12 @@ main{
     background-size: cover;
     background-position: center;
 }
+
+.quiz-answer-card:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1)!important;
+}
+
+.bg-success, .bg-danger {
+    color: white!important;
+}
