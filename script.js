@@ -42,12 +42,22 @@ function answer(selection) {
 
 function nextQuestion() {
     currentQuestion++;
-
-    showQuestion();
+    showProgress();
+    setTimeout(showQuestion,600);
     if (currentQuestion < questions.length) {
         document.getElementById('question-start').textContent = `${currentQuestion + 1}`;
         document.getElementById('btn-nextquestion').disabled = true;
     }
+}
+
+function showProgress(){
+    document.getElementById('progressbar').style=`width:${calculateProgress()}%`;
+    document.getElementById('progressbar').innerHTML = `${calculateProgress()}%`;
+}
+
+function calculateProgress(){
+    let calcProgress = 0;
+    return calcProgress = ((100/questions.length)*(currentQuestion));
 }
 
 function newGame() {
